@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Luyện thi V-ACT — ĐGNL ĐHQG-HCM</title>
+<meta name="description" content="Ứng dụng luyện thi Đánh giá năng lực V-ACT: luyện theo chủ đề, thi thử bấm giờ, theo dõi tiến độ." />
+<meta name="theme-color" content="#1d4ed8" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="apple-touch-icon" href="icons/icon-180.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="Luyện V-ACT" />
+<style>
+  :root{
+    --blue:#1d4ed8; --blue-dark:#1e40af; --blue-light:#eff6ff;
+    --green:#16a34a; --green-light:#f0fdf4; --red:#dc2626; --red-light:#fef2f2;
+    --amber:#d97706; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0;
+    --bg:#f8fafc; --card:#ffffff; --radius:16px;
+    --shadow:0 1px 3px rgba(15,23,42,.08),0 8px 24px rgba(15,23,42,.06);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.55;
+    padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:16px 16px 80px}
+  header.app{display:flex;align-items:center;gap:12px;padding:14px 4px 18px}
+  header.app .logo{width:42px;height:42px;border-radius:12px;background:var(--blue);
+    display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:18px;flex:none}
+  header.app h1{font-size:18px;margin:0;line-height:1.2}
+  header.app p{margin:2px 0 0;font-size:12.5px;color:var(--muted)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);padding:18px;margin-bottom:14px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:520px){.grid{grid-template-columns:1fr}}
+  .tile{cursor:pointer;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);
+    padding:18px;display:flex;gap:14px;align-items:flex-start;transition:.15s;box-shadow:var(--shadow)}
+  .tile:hover{border-color:var(--blue);transform:translateY(-1px)}
+  .tile .ic{font-size:24px;line-height:1}
+  .tile h3{margin:0 0 3px;font-size:15.5px}
+  .tile p{margin:0;font-size:12.5px;color:var(--muted)}
+  .section-title{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;
+    letter-spacing:.04em;margin:6px 4px 10px}
+  .btn{appearance:none;border:none;border-radius:12px;padding:12px 18px;font-size:15px;font-weight:600;
+    cursor:pointer;font-family:inherit;transition:.15s}
+  .btn-primary{background:var(--blue);color:#fff}
+  .btn-primary:hover{background:var(--blue-dark)}
+  .btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .spacer{flex:1}
+  .pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:600;background:var(--blue-light);color:var(--blue-dark)}
+  .topbar{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .timer{font-variant-numeric:tabular-nums;font-weight:800;font-size:16px;padding:6px 12px;border-radius:10px;
+    background:var(--blue-light);color:var(--blue-dark)}
+  .timer.warn{background:#fef3c7;color:var(--amber)}
+  .timer.danger{background:var(--red-light);color:var(--red)}
+  .qmeta{font-size:12.5px;color:var(--muted);margin-bottom:6px}
+  .qtext{font-size:16px;font-weight:600;margin:0 0 16px;white-space:pre-wrap}
+  .choices{display:flex;flex-direction:column;gap:10px}
+  .choice{display:flex;gap:12px;align-items:flex-start;padding:13px 15px;border:1.5px solid var(--line);
+    border-radius:12px;cursor:pointer;transition:.12s;background:#fff;font-size:15px}
+  .choice:hover{border-color:var(--blue)}
+  .choice .key{width:26px;height:26px;border-radius:8px;background:#f1f5f9;display:flex;align-items:center;
+    justify-content:center;font-weight:700;font-size:13px;flex:none}
+  .choice.selected{border-color:var(--blue);background:var(--blue-light)}
+  .choice.selected .key{background:var(--blue);color:#fff}
+  .choice.correct{border-color:var(--green);background:var(--green-light)}
+  .choice.correct .key{background:var(--green);color:#fff}
+  .choice.wrong{border-color:var(--red);background:var(--red-light)}
+  .choice.wrong .key{background:var(--red);color:#fff}
+  .choice.locked{cursor:default}
+  .explain{margin-top:16px;padding:14px 16px;border-radius:12px;background:#f8fafc;border:1px solid var(--line);
+    font-size:14px;display:none}
+  .explain.show{display:block}
+  .explain b{color:var(--blue-dark)}
+  .progress-bar{height:8px;border-radius:999px;background:#e2e8f0;overflow:hidden;margin:4px 0 0}
+  .progress-bar > i{display:block;height:100%;background:var(--blue);transition:width .3s}
+  .nav-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(40px,1fr));gap:8px;margin-top:8px}
+  .nav-cell{aspect-ratio:1;border:1px solid var(--line);border-radius:9px;display:flex;align-items:center;
+    justify-content:center;font-size:13px;font-weight:600;cursor:pointer;background:#fff}
+  .nav-cell.done{background:var(--blue-light);border-color:var(--blue);color:var(--blue-dark)}
+  .nav-cell.current{outline:2px solid var(--blue);outline-offset:1px}
+  .stat{display:flex;justify-content:space-between;padding:11px 2px;border-bottom:1px dashed var(--line);font-size:14.5px}
+  .stat:last-child{border-bottom:none}
+  .stat b{font-variant-numeric:tabular-nums}
+  .big-num{font-size:34px;font-weight:800;line-height:1}
+  .muted{color:var(--muted)}
+  .hidden{display:none!important}
+  .center{text-align:center}
+  .result-circle{width:120px;height:120px;border-radius:50%;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;margin:0 auto 12px;border:8px solid var(--blue);color:var(--blue-dark)}
+  a.link{color:var(--blue);text-decoration:none;font-weight:600}
+  .install-tip{font-size:12.5px;color:var(--muted);text-align:center;margin-top:18px;padding:0 10px}
+  .field-label{font-size:13px;font-weight:600;color:var(--muted);margin:0 0 6px}
+  select.input{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:11px;font-size:15px;font-family:inherit;background:#fff}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="app">
+    <div class="logo">V</div>
+    <div>
+      <h1>Luyện thi V-ACT</h1>
+      <p>Đánh giá năng lực — ĐHQG TP.HCM · 120 câu / 150 phút</p>
+    </div>
+  </header>
+
+  <!-- ====== TRANG CHỦ ====== -->
+  <main id="screen-home">
+    <div class="section-title">Chọn chế độ luyện tập</div>
+    <div class="grid">
+      <div class="tile" onclick="App.goTopicSelect()">
+        <div class="ic">📚</div>
+        <div><h3>Luyện theo chủ đề</h3><p>Làm từng phần, có giải thích sau mỗi câu. Không giới hạn giờ.</p></div>
+      </div>
+      <div class="tile" onclick="App.startMock()">
+        <div class="ic">⏱️</div>
+        <div><h3>Thi thử bấm giờ</h3><p>Mô phỏng đề thật theo tỉ lệ V-ACT, có đồng hồ đếm ngược.</p></div>
+      </div>
+      <div class="tile" onclick="App.goProgress()">
+        <div class="ic">📈</div>
+        <div><h3>Theo dõi tiến độ</h3><p>Thống kê điểm, độ chính xác từng phần, phần còn yếu.</p></div>
+      </div>
+      <div class="tile" onclick="App.goAbout()">
+        <div class="ic">ℹ️</div>
+        <div><h3>Về cấu trúc đề</h3><p>Thông tin cấu trúc đề V-ACT và cách thêm câu hỏi.</p></div>
+      </div>
+    </div>
+    <p class="install-tip" id="install-tip"></p>
+  </main>
+
+  <!-- ====== CHỌN CHỦ ĐỀ ====== -->
+  <main id="screen-topic" class="hidden">
+    <div class="topbar">
+      <button class="btn btn-ghost" onclick="App.goHome()">← Trang chủ</button>
+      <div class="spacer"></div>
+    </div>
+    <div class="card">
+      <div class="section-title" style="margin-top:0">Luyện theo chủ đề</div>
+      <p class="field-label">Chọn phần</p>
+      <select id="topic-part" class="input"></select>
+      <div style="height:14px"></div>
+      <p class="field-label">Số câu</p>
+      <select id="topic-count" class="input">
+        <option value="5">5 câu</option>
+        <option value="10">10 câu</option>
+        <option value="0">Tất cả câu của phần này</option>
+      </select>
+      <div style="height:18px"></div>
+      <button class="btn btn-primary" style="width:100%" onclick="App.startTopic()">Bắt đầu luyện</button>
+    </div>
+  </main>
+
+  <!-- ====== LÀM BÀI ====== -->
+  <main id="screen-quiz" class="hidden">
+    <div class="topbar">
+      <button class="btn btn-ghost" id="quiz-exit" onclick="App.confirmExit()">← Thoát</button>
+      <span class="pill" id="quiz-mode-pill">Luyện tập</span>
+      <div class="spacer"></div>
+      <span class="timer hidden" id="quiz-timer">--:--</span>
+    </div>
+    <div class="progress-bar"><i id="quiz-progress" style="width:0%"></i></div>
+    <div class="card" style="margin-top:14px">
+      <div class="qmeta" id="quiz-meta"></div>
+      <p class="qtext" id="quiz-question"></p>
+      <div class="choices" id="quiz-choices"></div>
+      <div class="explain" id="quiz-explain"></div>
+    </div>
+    <div class="row">
+      <button class="btn btn-ghost" id="btn-prev" onclick="App.prevQ()">← Câu trước</button>
+      <div class="spacer"></div>
+      <button class="btn btn-primary" id="btn-next" onclick="App.nextQ()">Câu sau →</button>
+    </div>
+    <div class="card hidden" id="quiz-navmap" style="margin-top:14px">
+      <div class="section-title" style="margin-top:0">Bảng câu hỏi</div>
+      <div class="nav-grid" id="nav-grid"></div>
+      <div style="height:14px"></div>
+      <button class="btn btn-primary" style="width:100%" onclick="App.submitMock()">Nộp bài</button>
+    </div>
+  </main>
+
+  <!-- ====== KẾT QUẢ ====== -->
+  <main id="screen-result" class="hidden">
+    <div class="card center">
+      <div class="result-circle"><span class="big-num" id="res-score">0</span><span class="muted" style="font-size:12px">điểm</span></div>
+      <h2 style="margin:0 0 4px" id="res-title">Hoàn thành!</h2>
+      <p class="muted" id="res-sub"></p>
+    </div>
+    <div class="card">
+      <div class="section-title" style="margin-top:0">Kết quả theo phần</div>
+      <div id="res-breakdown"></div>
+    </div>
+    <div class="row">
+      <button class="btn btn-ghost" onclick="App.reviewAnswers()">Xem lại bài làm</button>
+      <div class="spacer"></div>
+      <button class="btn btn-primary" onclick="App.goHome()">Về trang chủ</button>
+    </div>
+  </main>
+
+  <!-- ====== TIẾN ĐỘ ====== -->
+  <main id="screen-progress" class="hidden">
+    <div class="topbar">
+      <button class="btn btn-ghost" onclick="App.goHome()">← Trang chủ</button><div class="spacer"></div>
+      <button class="btn btn-ghost" onclick="App.resetProgress()">Xóa dữ liệu</button>
+    </div>
+    <div class="card">
+      <div class="section-title" style="margin-top:0">Tổng quan</div>
+      <div id="prog-overview"></div>
+    </div>
+    <div class="card">
+      <div class="section-title" style="margin-top:0">Độ chính xác từng phần</div>
+      <div id="prog-byparts"></div>
+    </div>
+    <div class="card">
+      <div class="section-title" style="margin-top:0">Lịch sử thi thử</div>
+      <div id="prog-history"></div>
+    </div>
+  </main>
+
+  <!-- ====== GIỚI THIỆU ====== -->
+  <main id="screen-about" class="hidden">
+    <div class="topbar"><button class="btn btn-ghost" onclick="App.goHome()">← Trang chủ</button></div>
+    <div class="card">
+      <div class="section-title" style="margin-top:0">Cấu trúc đề V-ACT 2026</div>
+      <p style="margin-top:0">Bài thi gồm <b>120 câu trắc nghiệm</b>, làm trong <b>150 phút</b>, mỗi câu 4 phương án và 1 đáp án đúng. Ba phần:</p>
+      <div class="stat"><span>Sử dụng ngôn ngữ — Tiếng Việt</span><b>30 câu</b></div>
+      <div class="stat"><span>Sử dụng ngôn ngữ — Tiếng Anh</span><b>30 câu</b></div>
+      <div class="stat"><span>Toán học</span><b>30 câu</b></div>
+      <div class="stat"><span>Tư duy khoa học</span><b>30 câu</b></div>
+    </div>
+    <div class="card">
+      <div class="section-title" style="margin-top:0">Thêm câu hỏi của thầy</div>
+      <p style="margin-top:0;font-size:14.5px">Mở file <b>data/questions.js</b> bằng Notepad hoặc VS Code, thêm câu theo mẫu có sẵn ở đầu file, lưu lại rồi tải lại trang (F5). Hiện có <b id="about-count">0</b> câu trong ngân hàng.</p>
+      <p style="font-size:13px" class="muted">Chi tiết định dạng xem trong file README đi kèm.</p>
+    </div>
+  </main>
+</div>
+
+<script src="data/questions.js"></script>
+<script src="data/questions_hsa_de1.js"></script>
+<script src="data/questions_hsa_de2_4.js"></script>
+<script src="js/app.js"></script>
+<script>
+  // Đăng ký service worker (chỉ hoạt động khi mở qua http/https, ví dụ khi đã đưa lên hosting)
+  if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+    window.addEventListener('load', () => navigator.serviceWorker.register('service-worker.js').catch(()=>{}));
+  }
+</script>
+</body>
+</html>
