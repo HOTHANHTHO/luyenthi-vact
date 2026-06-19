@@ -53,6 +53,19 @@
       " giây/câu), chia đều 4 phần — " + parts.map(function (x) { return x.name + ": " + x.take; }).join("; ") + ".";
   }
 
+  // Render công thức LaTeX ($...$) bằng KaTeX nếu đã tải (chạy được khi có mạng/đã cache)
+  function renderMath(el) {
+    if (el && window.renderMathInElement) {
+      try {
+        renderMathInElement(el, {
+          delimiters: [{ left: "$", right: "$", display: false }],
+          throwOnError: false,
+          ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code", "option"]
+        });
+      } catch (e) {}
+    }
+  }
+
   function showScreen(id) {
     ["home", "topic", "mock", "quiz", "result", "progress", "about"].forEach(function (s) {
       $("screen-" + s).classList.add("hidden");
@@ -189,6 +202,7 @@
     var isLast = S.index === S.questions.length - 1;
     $("btn-next").textContent = isLast ? (S.mode === "mock" ? "Tới bảng nộp bài →" : "Xem kết quả →") : "Câu sau →";
     if (S.mode === "mock") updateNavMap();
+    renderMath($("quiz-question")); renderMath($("quiz-choices")); renderMath($("quiz-explain"));
   }
 
   function chooseAnswer(i) {
