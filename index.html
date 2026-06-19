@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Luyện thi V-ACT 20260619 — ĐGNL ĐHQG-HCM</title>
+<title>Luyện thi đánh giá năng lực — V-ACT (ĐHQG-HCM)</title>
 <meta name="description" content="Ứng dụng luyện thi Đánh giá năng lực V-ACT: luyện theo chủ đề, thi thử bấm giờ, theo dõi tiến độ." />
 <meta name="theme-color" content="#1d4ed8" />
 <link rel="manifest" href="manifest.webmanifest" />
 <link rel="apple-touch-icon" href="icons/icon-180.png" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-<meta name="apple-mobile-web-app-title" content="V-ACT 20260619" />
+<meta name="apple-mobile-web-app-title" content="Luyện thi ĐGNL" />
 <style>
   :root{
     --blue:#1d4ed8; --blue-dark:#1e40af; --blue-light:#eff6ff;
@@ -29,7 +29,10 @@
   .wrap{max-width:760px;margin:0 auto;padding:16px 16px 80px}
   header.app{display:flex;align-items:center;gap:12px;padding:14px 4px 18px}
   header.app .logo{width:42px;height:42px;border-radius:12px;background:var(--blue);
-    display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:18px;flex:none}
+    display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;
+    font-weight:800;line-height:1.1;flex:none}
+  header.app .logo span:first-child{font-size:13px;letter-spacing:.5px}
+  header.app .logo span:last-child{font-size:10px;letter-spacing:.5px}
   header.app h1{font-size:18px;margin:0;line-height:1.2}
   header.app p{margin:2px 0 0;font-size:12.5px;color:var(--muted)}
   .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
@@ -103,9 +106,9 @@
 <body>
 <div class="wrap">
   <header class="app">
-    <div class="logo">V</div>
+    <div class="logo"><span>HTT</span><span>DGNL</span></div>
     <div>
-      <h1>Luyện thi V-ACT</h1>
+      <h1>Luyện thi đánh giá năng lực</h1>
       <p>Đánh giá năng lực — ĐHQG TP.HCM · 120 câu / 150 phút · Phiên bản 20260619</p>
     </div>
   </header>
