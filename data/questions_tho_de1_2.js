@@ -1,9 +1,9 @@
 /* =====================================================================
  * NGÂN HÀNG - ĐỀ MẪU DGNL-THO (Đề 1 + Đề 2) - do thầy Hồ Thanh Thơ biên soạn
  *   240 câu (mỗi đề 120: TV 30 / TA 30 / Toán 30 / Tư duy khoa học 30).
- *   - Công thức viết bằng LaTeX ($...$), app render bằng KaTeX.
+ *   - Công thức gốc viết bằng LaTeX, đã chuyển sang ký hiệu Unicode đọc được
+ *     (vd: log₂₇, √(...), x², (a)/(b), ΔᵣG°) để hiển thị mọi nơi, không cần mạng.
  *   - Câu dùng chung đoạn văn/dữ kiện: đoạn đó đã được CHÉP vào TỪNG câu.
- *   - Đáp án theo bảng đáp án cuối mỗi đề.
  * ===================================================================== */
 window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
 [
@@ -865,12 +865,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c062",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Đặt $a = \\log_{27} 5$ , $b = \\log_8 7$ , $c = \\log_2 3$ . Khi đó $\\log_{12} 35$ bằng:",
+    "question": "Đặt a = log₂₇ 5 , b = log₈ 7 , c = log₂ 3 . Khi đó log₁₂ 35 bằng:",
     "choices": [
-      "$\\frac{3ac+3b}{c+1}$.",
-      "$\\frac{2ac+3b}{c+3}$.",
-      "$\\frac{3ac+3b}{c+2}$.",
-      "$\\frac{2ac+3b}{c+2}$."
+      "(3ac+3b)/(c+1).",
+      "(2ac+3b)/(c+3).",
+      "(3ac+3b)/(c+2).",
+      "(2ac+3b)/(c+2)."
     ],
     "answer": 2,
     "explanation": ""
@@ -879,12 +879,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c063",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Biết rằng $\\lim_{x \\to +\\infty} (\\sqrt{ax^2 + bx + 1} - x) = 2$ . Giá trị của $P = ab$ là:",
+    "question": "Biết rằng lim_(x → +∞) (√(ax² + bx + 1) - x) = 2 . Giá trị của P = ab là:",
     "choices": [
-      "$P = 4$.",
-      "$P = 2$.",
-      "$P = 1$.",
-      "$P = -1$."
+      "P = 4.",
+      "P = 2.",
+      "P = 1.",
+      "P = -1."
     ],
     "answer": 0,
     "explanation": ""
@@ -893,12 +893,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c064",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Cho hàm số $f(x) = \\sqrt{2x^2 - 2x + 1}$ . Đạo hàm của hàm số tại $x = 1$ là:",
+    "question": "Cho hàm số f(x) = √(2x² - 2x + 1) . Đạo hàm của hàm số tại x = 1 là:",
     "choices": [
-      "$f'(1) = 1$.",
-      "$f'(1) = 2$.",
-      "$f'(1) = -1$.",
-      "$f'(1) = \\frac{1}{2}$."
+      "f'(1) = 1.",
+      "f'(1) = 2.",
+      "f'(1) = -1.",
+      "f'(1) = 1/2."
     ],
     "answer": 0,
     "explanation": ""
@@ -907,7 +907,7 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c065",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Cho hàm số $y=f(x)$ xác định trên $\\mathbb{R}$ và có $f'(x) = (x+1)^3(x-2)^5x^4$ . Số điểm cực tiểu của hàm số là:",
+    "question": "Cho hàm số y=f(x) xác định trên ℝ và có f'(x) = (x+1)³(x-2)⁵x⁴ . Số điểm cực tiểu của hàm số là:",
     "choices": [
       "1.",
       "2.",
@@ -921,7 +921,7 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c066",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Số đường tiệm cận của đồ thị hàm số $y = \\frac{\\sqrt{x^2 - 4x + 3}}{x - 4}$ là:",
+    "question": "Số đường tiệm cận của đồ thị hàm số y = (√(x² - 4x + 3))/(x - 4) là:",
     "choices": [
       "1.",
       "2.",
@@ -935,7 +935,7 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c067",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Cho hàm số $f(x) = x^3 - 3(m+1)x^2 + 6mx + 1$ , với $m$ là tham số thực. Với $m = 3$ , giá trị lớn nhất của hàm số $y = f(x)$ trên đoạn $0; 3$ là:",
+    "question": "Cho hàm số f(x) = x³ - 3(m+1)x² + 6mx + 1 , với m là tham số thực. Với m = 3 , giá trị lớn nhất của hàm số y = f(x) trên đoạn 0; 3 là:",
     "choices": [
       "5.",
       "9.",
@@ -949,12 +949,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c068",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Cho hàm số $f(x) = x^3 - 3(m+1)x^2 + 6mx + 1$ , với $m$ là tham số thực. Hàm số $y = f(x)$ nghịch biến trên khoảng $(1; 3)$ khi và chỉ khi:",
+    "question": "Cho hàm số f(x) = x³ - 3(m+1)x² + 6mx + 1 , với m là tham số thực. Hàm số y = f(x) nghịch biến trên khoảng (1; 3) khi và chỉ khi:",
     "choices": [
-      "$m \\le 1$.",
-      "$m \\ge 1$.",
-      "$m \\le 3$.",
-      "$m \\ge 3$."
+      "m ≤ 1.",
+      "m ≥ 1.",
+      "m ≤ 3.",
+      "m ≥ 3."
     ],
     "answer": 3,
     "explanation": ""
@@ -963,12 +963,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c069",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Cho hàm số $f(x) = x^3 - 3(m+1)x^2 + 6mx + 1$ , với $m$ là tham số thực. Đường thẳng $y=1$ cắt đồ thị hàm số $y = f(x)$ tại hai điểm phân biệt có hoành độ lớn hơn 2 khi và chỉ khi:",
+    "question": "Cho hàm số f(x) = x³ - 3(m+1)x² + 6mx + 1 , với m là tham số thực. Đường thẳng y=1 cắt đồ thị hàm số y = f(x) tại hai điểm phân biệt có hoành độ lớn hơn 2 khi và chỉ khi:",
     "choices": [
-      "$m > 3$.",
-      "$m < 3$.",
-      "$m > 9$.",
-      "$m < 9$."
+      "m > 3.",
+      "m < 3.",
+      "m > 9.",
+      "m < 9."
     ],
     "answer": 0,
     "explanation": ""
@@ -977,12 +977,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c070",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Cho cấp số cộng $(u_n)$ xác định bởi hệ: $u_2 + u_6 = 18$ và $u_3 + u_7 = 22$ . Công sai $d$ của cấp số cộng $(u_n)$ là:",
+    "question": "Cho cấp số cộng (uₙ) xác định bởi hệ: u₂ + u₆ = 18 và u₃ + u₇ = 22 . Công sai d của cấp số cộng (uₙ) là:",
     "choices": [
-      "$d = 2$.",
-      "$d = -2$.",
-      "$d = 3$.",
-      "$d = -3$."
+      "d = 2.",
+      "d = -2.",
+      "d = 3.",
+      "d = -3."
     ],
     "answer": 0,
     "explanation": ""
@@ -991,10 +991,10 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c071",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Cho cấp số cộng $(u_n)$ xác định bởi hệ: $u_2 + u_6 = 18$ và $u_3 + u_7 = 22$ . Giá trị của $\\lim \\frac{u_n}{2n + 3}$ bằng:",
+    "question": "Cho cấp số cộng (uₙ) xác định bởi hệ: u₂ + u₆ = 18 và u₃ + u₇ = 22 . Giá trị của lim uₙ/(2n + 3) bằng:",
     "choices": [
-      "$\\frac{3}{2}$.",
-      "$\\frac{2}{3}$.",
+      "3/2.",
+      "2/3.",
       "3.",
       "6."
     ],
@@ -1005,12 +1005,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c072",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Một bác nông dân cần trồng lúa và khoai trên diện tích 6 ha, với lượng phân bón dự trữ là 100 kg và sử dụng tối đa 240 ngày công. Trồng 1 ha lúa cần 20 kg phân bón, 30 ngày công, lãi 50 triệu đồng. Trồng 1 ha khoai cần 10 kg phân bón, 60 ngày công, lãi 60 triệu đồng. Nếu trồng $x$ (ha) lúa và $y$ (ha) khoai, số kg phân bón cần dùng là:",
+    "question": "Một bác nông dân cần trồng lúa và khoai trên diện tích 6 ha, với lượng phân bón dự trữ là 100 kg và sử dụng tối đa 240 ngày công. Trồng 1 ha lúa cần 20 kg phân bón, 30 ngày công, lãi 50 triệu đồng. Trồng 1 ha khoai cần 10 kg phân bón, 60 ngày công, lãi 60 triệu đồng. Nếu trồng x (ha) lúa và y (ha) khoai, số kg phân bón cần dùng là:",
     "choices": [
-      "$20x + 10y$.",
-      "$10x + 20y$.",
-      "$20x + 30y$.",
-      "$30x + 60y$."
+      "20x + 10y.",
+      "10x + 20y.",
+      "20x + 30y.",
+      "30x + 60y."
     ],
     "answer": 0,
     "explanation": ""
@@ -1019,7 +1019,7 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c073",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Một bác nông dân cần trồng lúa và khoai trên diện tích 6 ha, với lượng phân bón dự trữ là 100 kg và sử dụng tối đa 240 ngày công. Trồng 1 ha lúa cần 20 kg phân bón, 30 ngày công, lãi 50 triệu đồng. Trồng 1 ha khoai cần 10 kg phân bón, 60 ngày công, lãi 60 triệu đồng. Để lãi cao nhất, bác nông dân đã trồng $x$ (ha) lúa và $y$ (ha) khoai. Giá trị của $x$ là:",
+    "question": "Một bác nông dân cần trồng lúa và khoai trên diện tích 6 ha, với lượng phân bón dự trữ là 100 kg và sử dụng tối đa 240 ngày công. Trồng 1 ha lúa cần 20 kg phân bón, 30 ngày công, lãi 50 triệu đồng. Trồng 1 ha khoai cần 10 kg phân bón, 60 ngày công, lãi 60 triệu đồng. Để lãi cao nhất, bác nông dân đã trồng x (ha) lúa và y (ha) khoai. Giá trị của x là:",
     "choices": [
       "2.",
       "3.",
@@ -1033,7 +1033,7 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c074",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Cho phương trình $9^x - 2m \\cdot 3^x + 3m + 4 = 0$ . Khi $m = -5$ , tổng tất cả các nghiệm của phương trình là:",
+    "question": "Cho phương trình 9ˣ - 2m · 3ˣ + 3m + 4 = 0 . Khi m = -5 , tổng tất cả các nghiệm của phương trình là:",
     "choices": [
       "0.",
       "1.",
@@ -1047,12 +1047,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c075",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Cho phương trình $9^x - 2m \\cdot 3^x + 3m + 4 = 0$ . Phương trình có hai nghiệm phân biệt khi và chỉ khi:",
+    "question": "Cho phương trình 9ˣ - 2m · 3ˣ + 3m + 4 = 0 . Phương trình có hai nghiệm phân biệt khi và chỉ khi:",
     "choices": [
-      "$m > 4$.",
-      "$m \\ge 4$.",
-      "$m < -1$ hoặc $m > 4$.",
-      "$m > 0$."
+      "m > 4.",
+      "m ≥ 4.",
+      "m < -1 hoặc m > 4.",
+      "m > 0."
     ],
     "answer": 0,
     "explanation": ""
@@ -1061,12 +1061,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c076",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Cho bất phương trình $\\log_2(5^x - 1) \\le m$ . Khi $m = 2$ , tập nghiệm của bất phương trình là:",
+    "question": "Cho bất phương trình log₂(5ˣ - 1) ≤ m . Khi m = 2 , tập nghiệm của bất phương trình là:",
     "choices": [
-      "$(-\\infty; 1]$.",
-      "$(0; 1]$.",
-      "$(-\\infty; 1)$.",
-      "$0; 1$."
+      "(-∞; 1].",
+      "(0; 1].",
+      "(-∞; 1).",
+      "0; 1."
     ],
     "answer": 1,
     "explanation": ""
@@ -1075,7 +1075,7 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c077",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Cho bất phương trình $\\log_2(5^x - 1) \\le m$ . Có bao nhiêu giá trị nguyên của $m$ để bất phương trình có đúng 3 nghiệm nguyên?",
+    "question": "Cho bất phương trình log₂(5ˣ - 1) ≤ m . Có bao nhiêu giá trị nguyên của m để bất phương trình có đúng 3 nghiệm nguyên?",
     "choices": [
       "1.",
       "2.",
@@ -1131,7 +1131,7 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c081",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Cho tam giác ABC có độ dài các cạnh là $AB = 5, BC = 6, CA = 7$ . Giá trị của $\\vec{AB} \\cdot \\vec{AC}$ là:",
+    "question": "Cho tam giác ABC có độ dài các cạnh là AB = 5, BC = 6, CA = 7 . Giá trị của AB⃗ · AC⃗ là:",
     "choices": [
       "19.",
       "6.",
@@ -1145,12 +1145,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c082",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Cho tam giác ABC có độ dài các cạnh là $AB = 5, BC = 6, CA = 7$ . Độ dài đường cao kẻ từ A của tam giác ABC là:",
+    "question": "Cho tam giác ABC có độ dài các cạnh là AB = 5, BC = 6, CA = 7 . Độ dài đường cao kẻ từ A của tam giác ABC là:",
     "choices": [
-      "$h_a = 2\\sqrt{6}$.",
-      "$h_a = \\sqrt{6}$.",
-      "$h_a = 2\\sqrt{3}$.",
-      "$h_a = 2\\sqrt{2}$."
+      "hₐ = 2√(6).",
+      "hₐ = √(6).",
+      "hₐ = 2√(3).",
+      "hₐ = 2√(2)."
     ],
     "answer": 0,
     "explanation": ""
@@ -1159,12 +1159,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c083",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Trong mặt phẳng Oxy, cho tam giác ABC có đường cao $AD: x - 3y - 6 = 0$ , đường cao $BE: 3x - y - 10 = 0$ và cạnh $AB: x - y - 2 = 0$ . Tung độ của điểm A là:",
+    "question": "Trong mặt phẳng Oxy, cho tam giác ABC có đường cao AD: x - 3y - 6 = 0 , đường cao BE: 3x - y - 10 = 0 và cạnh AB: x - y - 2 = 0 . Tung độ của điểm A là:",
     "choices": [
-      "$y_A = 0$.",
-      "$y_A = -2$.",
-      "$y_A = 1$.",
-      "$y_A = -1$."
+      "y_(A) = 0.",
+      "y_(A) = -2.",
+      "y_(A) = 1.",
+      "y_(A) = -1."
     ],
     "answer": 1,
     "explanation": ""
@@ -1173,12 +1173,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c084",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Trong mặt phẳng Oxy, cho tam giác ABC có đường cao $AD: x - 3y - 6 = 0$ , đường cao $BE: 3x - y - 10 = 0$ và cạnh $AB: x - y - 2 = 0$ . Phương trình đường cao kẻ từ C là:",
+    "question": "Trong mặt phẳng Oxy, cho tam giác ABC có đường cao AD: x - 3y - 6 = 0 , đường cao BE: 3x - y - 10 = 0 và cạnh AB: x - y - 2 = 0 . Phương trình đường cao kẻ từ C là:",
     "choices": [
-      "$x - y - 4 = 0$.",
-      "$x - y + 4 = 0$.",
-      "$x + y - 2 = 0$.",
-      "$x + y + 2 = 0$."
+      "x - y - 4 = 0.",
+      "x - y + 4 = 0.",
+      "x + y - 2 = 0.",
+      "x + y + 2 = 0."
     ],
     "answer": 2,
     "explanation": ""
@@ -1187,12 +1187,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c085",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Cho hình chóp tứ giác đều S.ABCD có cạnh đáy bằng $2a$ , khoảng cách giữa hai đường thẳng SA và CD bằng $a\\sqrt{3}$ . Gọi O là tâm của đáy. Khoảng cách từ O đến mặt phẳng (SAB) bằng:",
+    "question": "Cho hình chóp tứ giác đều S.ABCD có cạnh đáy bằng 2a , khoảng cách giữa hai đường thẳng SA và CD bằng a√(3) . Gọi O là tâm của đáy. Khoảng cách từ O đến mặt phẳng (SAB) bằng:",
     "choices": [
-      "$\\frac{a\\sqrt{3}}{3}$.",
-      "$\\frac{a\\sqrt{3}}{2}$.",
-      "$a\\sqrt{3}$.",
-      "$2a\\sqrt{3}$."
+      "(a√(3))/3.",
+      "(a√(3))/2.",
+      "a√(3).",
+      "2a√(3)."
     ],
     "answer": 1,
     "explanation": ""
@@ -1201,12 +1201,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c086",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Cho hình chóp tứ giác đều S.ABCD có cạnh đáy bằng $2a$ , khoảng cách giữa hai đường thẳng SA và CD bằng $a\\sqrt{3}$ . Thể tích của khối chóp S.ABCD bằng:",
+    "question": "Cho hình chóp tứ giác đều S.ABCD có cạnh đáy bằng 2a , khoảng cách giữa hai đường thẳng SA và CD bằng a√(3) . Thể tích của khối chóp S.ABCD bằng:",
     "choices": [
-      "$\\frac{a^3\\sqrt{6}}{3}$.",
-      "$\\frac{a^3\\sqrt{3}}{3}$.",
-      "$\\frac{4a^3\\sqrt{3}}{3}$.",
-      "$\\frac{4a^3\\sqrt{6}}{3}$."
+      "(a³√(6))/3.",
+      "(a³√(3))/3.",
+      "(4a³√(3))/3.",
+      "(4a³√(6))/3."
     ],
     "answer": 2,
     "explanation": ""
@@ -1215,12 +1215,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c087",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Cho hình chóp tứ giác đều S.ABCD có cạnh đáy bằng $2a$ , khoảng cách giữa hai đường thẳng SA và CD bằng $a\\sqrt{3}$ . Góc giữa hai đường thẳng SA và CD xấp xỉ bằng:",
+    "question": "Cho hình chóp tứ giác đều S.ABCD có cạnh đáy bằng 2a , khoảng cách giữa hai đường thẳng SA và CD bằng a√(3) . Góc giữa hai đường thẳng SA và CD xấp xỉ bằng:",
     "choices": [
-      "$70^\\circ 29'$.",
-      "$26^\\circ 34'$.",
-      "$19^\\circ 31'$.",
-      "$63^\\circ 26'$."
+      "70° 29'.",
+      "26° 34'.",
+      "19° 31'.",
+      "63° 26'."
     ],
     "answer": 0,
     "explanation": ""
@@ -1229,7 +1229,7 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c088",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Trong không gian Oxyz, cho điểm $A(2; 2; -3)$ và hai mặt phẳng $(P): 2x + y - 2z = 0$ , $(Q): 2x - y + z = 0$ . Khoảng cách từ điểm A đến mặt phẳng (P) bằng:",
+    "question": "Trong không gian Oxyz, cho điểm A(2; 2; -3) và hai mặt phẳng (P): 2x + y - 2z = 0 , (Q): 2x - y + z = 0 . Khoảng cách từ điểm A đến mặt phẳng (P) bằng:",
     "choices": [
       "3.",
       "4.",
@@ -1243,12 +1243,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c089",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Trong không gian Oxyz, cho điểm $A(2; 2; -3)$ và hai mặt phẳng $(P): 2x + y - 2z = 0$ , $(Q): 2x - y + z = 0$ . Mặt phẳng đi qua A và vuông góc với cả (P) và (Q) có phương trình:",
+    "question": "Trong không gian Oxyz, cho điểm A(2; 2; -3) và hai mặt phẳng (P): 2x + y - 2z = 0 , (Q): 2x - y + z = 0 . Mặt phẳng đi qua A và vuông góc với cả (P) và (Q) có phương trình:",
     "choices": [
-      "$x + 6y + 4z - 2 = 0$.",
-      "$x - 6y - 4z - 2 = 0$.",
-      "$x - 6y + 4z + 22 = 0$.",
-      "$x + 6y - 4z - 26 = 0$."
+      "x + 6y + 4z - 2 = 0.",
+      "x - 6y - 4z - 2 = 0.",
+      "x - 6y + 4z + 22 = 0.",
+      "x + 6y - 4z - 26 = 0."
     ],
     "answer": 0,
     "explanation": ""
@@ -1257,12 +1257,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c090",
     "part": "toan",
     "topic": "Đề mẫu THO 1 – Toán học",
-    "question": "Trong không gian Oxyz, cho điểm $A(2; 2; -3)$ và hai mặt phẳng $(P): 2x + y - 2z = 0$ , $(Q): 2x - y + z = 0$ . Gọi $d$ là đường thẳng qua A và song song với cả (P) và (Q). Điểm M nào thuộc $d$ ?",
+    "question": "Trong không gian Oxyz, cho điểm A(2; 2; -3) và hai mặt phẳng (P): 2x + y - 2z = 0 , (Q): 2x - y + z = 0 . Gọi d là đường thẳng qua A và song song với cả (P) và (Q). Điểm M nào thuộc d ?",
     "choices": [
-      "$M(1; -4; 7)$.",
-      "$M(1; 4; -7)$.",
-      "$M(3; 8; -1)$.",
-      "$M(3; 8; 1)$."
+      "M(1; -4; 7).",
+      "M(1; 4; -7).",
+      "M(3; 8; -1).",
+      "M(3; 8; 1)."
     ],
     "answer": 3,
     "explanation": ""
@@ -1439,11 +1439,11 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c103",
     "part": "tukhoahoc",
     "topic": "Đề mẫu THO 1 – Tư duy khoa học",
-    "question": "Năng lượng tự do Gibbs ( $\\Delta_rG^o$ ) quyết định chiều hướng và giới hạn của các quá trình hóa học. Mối liên hệ giữa $\\Delta_rG^o$ , biến thiên enthalpy ( $\\Delta_rH^o$ ), biến thiên entropy ( $\\Delta_rS^o$ ) và nhiệt độ ( $T$ ) được biểu diễn qua phương trình: $\\Delta_rG^o = \\Delta_rH^o - T \\cdot \\Delta_rS^o$ . Đồ thị thực nghiệm cho một phản ứng cụ thể cho thấy $\\Delta_rG^o$ giảm dần theo đường thẳng khi nhiệt độ tăng, cắt trục hoành ( $\\Delta_rG^o = 0$ ) tại $1110\\text{ K}$ . Phản ứng trên xảy ra tự phát ở điều kiện chuẩn khi:",
+    "question": "Năng lượng tự do Gibbs ( ΔᵣG° ) quyết định chiều hướng và giới hạn của các quá trình hóa học. Mối liên hệ giữa ΔᵣG° , biến thiên enthalpy ( ΔᵣH° ), biến thiên entropy ( ΔᵣS° ) và nhiệt độ ( T ) được biểu diễn qua phương trình: ΔᵣG° = ΔᵣH° - T · ΔᵣS° . Đồ thị thực nghiệm cho một phản ứng cụ thể cho thấy ΔᵣG° giảm dần theo đường thẳng khi nhiệt độ tăng, cắt trục hoành ( ΔᵣG° = 0 ) tại 1110 K . Phản ứng trên xảy ra tự phát ở điều kiện chuẩn khi:",
     "choices": [
-      "$T > 1110\\text{ K}$.",
-      "$T < 1110\\text{ K}$.",
-      "$T = 1110\\text{ K}$.",
+      "T > 1110 K.",
+      "T < 1110 K.",
+      "T = 1110 K.",
       "Ở mọi nhiệt độ."
     ],
     "answer": 0,
@@ -1453,11 +1453,11 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c104",
     "part": "tukhoahoc",
     "topic": "Đề mẫu THO 1 – Tư duy khoa học",
-    "question": "Năng lượng tự do Gibbs ( $\\Delta_rG^o$ ) quyết định chiều hướng và giới hạn của các quá trình hóa học. Mối liên hệ giữa $\\Delta_rG^o$ , biến thiên enthalpy ( $\\Delta_rH^o$ ), biến thiên entropy ( $\\Delta_rS^o$ ) và nhiệt độ ( $T$ ) được biểu diễn qua phương trình: $\\Delta_rG^o = \\Delta_rH^o - T \\cdot \\Delta_rS^o$ . Đồ thị thực nghiệm cho một phản ứng cụ thể cho thấy $\\Delta_rG^o$ giảm dần theo đường thẳng khi nhiệt độ tăng, cắt trục hoành ( $\\Delta_rG^o = 0$ ) tại $1110\\text{ K}$ . Từ độ dốc âm của đồ thị, ta có thể kết luận về biến thiên entropy ( $\\Delta_rS^o$ ) của phản ứng là:",
+    "question": "Năng lượng tự do Gibbs ( ΔᵣG° ) quyết định chiều hướng và giới hạn của các quá trình hóa học. Mối liên hệ giữa ΔᵣG° , biến thiên enthalpy ( ΔᵣH° ), biến thiên entropy ( ΔᵣS° ) và nhiệt độ ( T ) được biểu diễn qua phương trình: ΔᵣG° = ΔᵣH° - T · ΔᵣS° . Đồ thị thực nghiệm cho một phản ứng cụ thể cho thấy ΔᵣG° giảm dần theo đường thẳng khi nhiệt độ tăng, cắt trục hoành ( ΔᵣG° = 0 ) tại 1110 K . Từ độ dốc âm của đồ thị, ta có thể kết luận về biến thiên entropy ( ΔᵣS° ) của phản ứng là:",
     "choices": [
-      "$\\Delta_rS^o < 0$.",
-      "$\\Delta_rS^o > 0$.",
-      "$\\Delta_rS^o = 0$.",
+      "ΔᵣS° < 0.",
+      "ΔᵣS° > 0.",
+      "ΔᵣS° = 0.",
       "Không xác định được."
     ],
     "answer": 1,
@@ -1467,7 +1467,7 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c105",
     "part": "tukhoahoc",
     "topic": "Đề mẫu THO 1 – Tư duy khoa học",
-    "question": "Năng lượng tự do Gibbs ( $\\Delta_rG^o$ ) quyết định chiều hướng và giới hạn của các quá trình hóa học. Mối liên hệ giữa $\\Delta_rG^o$ , biến thiên enthalpy ( $\\Delta_rH^o$ ), biến thiên entropy ( $\\Delta_rS^o$ ) và nhiệt độ ( $T$ ) được biểu diễn qua phương trình: $\\Delta_rG^o = \\Delta_rH^o - T \\cdot \\Delta_rS^o$ . Đồ thị thực nghiệm cho một phản ứng cụ thể cho thấy $\\Delta_rG^o$ giảm dần theo đường thẳng khi nhiệt độ tăng, cắt trục hoành ( $\\Delta_rG^o = 0$ ) tại $1110\\text{ K}$ . Tại nhiệt độ $1110\\text{ K}$ , nhận định nào sau đây là đúng?",
+    "question": "Năng lượng tự do Gibbs ( ΔᵣG° ) quyết định chiều hướng và giới hạn của các quá trình hóa học. Mối liên hệ giữa ΔᵣG° , biến thiên enthalpy ( ΔᵣH° ), biến thiên entropy ( ΔᵣS° ) và nhiệt độ ( T ) được biểu diễn qua phương trình: ΔᵣG° = ΔᵣH° - T · ΔᵣS° . Đồ thị thực nghiệm cho một phản ứng cụ thể cho thấy ΔᵣG° giảm dần theo đường thẳng khi nhiệt độ tăng, cắt trục hoành ( ΔᵣG° = 0 ) tại 1110 K . Tại nhiệt độ 1110 K , nhận định nào sau đây là đúng?",
     "choices": [
       "Phản ứng xảy ra mãnh liệt.",
       "Phản ứng dừng lại hoàn toàn.",
@@ -1483,10 +1483,10 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "topic": "Đề mẫu THO 1 – Tư duy khoa học",
     "question": "Trong mạch điện xoay chiều RLC nối tiếp, hiện tượng cộng hưởng điện xảy ra khi:",
     "choices": [
-      "$Z_L < Z_C$.",
-      "$Z_L > Z_C$.",
-      "$Z_L = Z_C$.",
-      "$Z_L \\cdot Z_C = R^2$."
+      "Z_(L) < Z_(C).",
+      "Z_(L) > Z_(C).",
+      "Z_(L) = Z_(C).",
+      "Z_(L) · Z_(C) = R²."
     ],
     "answer": 2,
     "explanation": ""
@@ -1495,12 +1495,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c107",
     "part": "tukhoahoc",
     "topic": "Đề mẫu THO 1 – Tư duy khoa học",
-    "question": "Một vật dao động điều hòa với phương trình $x = A\\cos(\\omega t + \\phi)$ . Gia tốc của vật biến thiên:",
+    "question": "Một vật dao động điều hòa với phương trình x = Acos(ω t + φ) . Gia tốc của vật biến thiên:",
     "choices": [
       "Ngược pha với li độ.",
       "Cùng pha với li độ.",
-      "Trễ pha $\\pi/2$ so với li độ.",
-      "Sớm pha $\\pi/2$ so với li độ."
+      "Trễ pha π/2 so với li độ.",
+      "Sớm pha π/2 so với li độ."
     ],
     "answer": 0,
     "explanation": ""
@@ -1509,12 +1509,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho1-c108",
     "part": "tukhoahoc",
     "topic": "Đề mẫu THO 1 – Tư duy khoa học",
-    "question": "Một sóng cơ truyền dọc theo trục Ox có phương trình $u = A\\cos(20\\pi t - 0,1\\pi x)$ . Tốc độ truyền sóng là:",
+    "question": "Một sóng cơ truyền dọc theo trục Ox có phương trình u = Acos(20π t - 0,1π x) . Tốc độ truyền sóng là:",
     "choices": [
-      "$100\\text{ cm/s}$.",
-      "$200\\text{ cm/s}$.",
-      "$50\\text{ cm/s}$.",
-      "$20\\text{ cm/s}$."
+      "100 cm/s.",
+      "200 cm/s.",
+      "50 cm/s.",
+      "20 cm/s."
     ],
     "answer": 1,
     "explanation": ""
@@ -2545,12 +2545,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c062",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Đặt $a = \\log_{27} 5$ , $b = \\log_8 7$ , $c = \\log_2 3$ . Khi đó $\\log_{12} 35$ bằng:",
+    "question": "Đặt a = log₂₇ 5 , b = log₈ 7 , c = log₂ 3 . Khi đó log₁₂ 35 bằng:",
     "choices": [
-      "$\\frac{3ac+3b}{c+1}$.",
-      "$\\frac{2ac+3b}{c+3}$.",
-      "$\\frac{3ac+3b}{c+2}$.",
-      "$\\frac{2ac+3b}{c+2}$."
+      "(3ac+3b)/(c+1).",
+      "(2ac+3b)/(c+3).",
+      "(3ac+3b)/(c+2).",
+      "(2ac+3b)/(c+2)."
     ],
     "answer": 2,
     "explanation": ""
@@ -2559,12 +2559,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c063",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Biết rằng $\\lim_{x \\to +\\infty} (\\sqrt{ax^2 + bx + 1} - x) = 2$ . Giá trị của $P = ab$ là:",
+    "question": "Biết rằng lim_(x → +∞) (√(ax² + bx + 1) - x) = 2 . Giá trị của P = ab là:",
     "choices": [
-      "$P = 4$.",
-      "$P = 2$.",
-      "$P = 1$.",
-      "$P = -1$."
+      "P = 4.",
+      "P = 2.",
+      "P = 1.",
+      "P = -1."
     ],
     "answer": 0,
     "explanation": ""
@@ -2573,12 +2573,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c064",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Cho hàm số $f(x) = \\sqrt{2x^2 - 2x + 1}$ . Đạo hàm của hàm số tại $x = 1$ là:",
+    "question": "Cho hàm số f(x) = √(2x² - 2x + 1) . Đạo hàm của hàm số tại x = 1 là:",
     "choices": [
-      "$f'(1) = 1$.",
-      "$f'(1) = 2$.",
-      "$f'(1) = -1$.",
-      "$f'(1) = \\frac{1}{2}$."
+      "f'(1) = 1.",
+      "f'(1) = 2.",
+      "f'(1) = -1.",
+      "f'(1) = 1/2."
     ],
     "answer": 0,
     "explanation": ""
@@ -2587,7 +2587,7 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c065",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Cho hàm số $y=f(x)$ xác định trên $\\mathbb{R}$ và có $f'(x) = (x+1)^3(x-2)^5x^4$ . Số điểm cực tiểu của hàm số là:",
+    "question": "Cho hàm số y=f(x) xác định trên ℝ và có f'(x) = (x+1)³(x-2)⁵x⁴ . Số điểm cực tiểu của hàm số là:",
     "choices": [
       "1.",
       "2.",
@@ -2601,7 +2601,7 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c066",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Số đường tiệm cận của đồ thị hàm số $y = \\frac{\\sqrt{x^2 - 4x + 3}}{x - 4}$ là:",
+    "question": "Số đường tiệm cận của đồ thị hàm số y = (√(x² - 4x + 3))/(x - 4) là:",
     "choices": [
       "1.",
       "2.",
@@ -2615,7 +2615,7 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c067",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Cho hàm số $f(x) = x^3 - 3(m+1)x^2 + 6mx + 1$ , với $m$ là tham số thực. Với $m = 3$ , giá trị lớn nhất của hàm số $y = f(x)$ trên đoạn $0; 3$ là:",
+    "question": "Cho hàm số f(x) = x³ - 3(m+1)x² + 6mx + 1 , với m là tham số thực. Với m = 3 , giá trị lớn nhất của hàm số y = f(x) trên đoạn 0; 3 là:",
     "choices": [
       "5.",
       "9.",
@@ -2629,12 +2629,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c068",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Cho hàm số $f(x) = x^3 - 3(m+1)x^2 + 6mx + 1$ , với $m$ là tham số thực. Hàm số $y = f(x)$ nghịch biến trên khoảng $(1; 3)$ khi và chỉ khi:",
+    "question": "Cho hàm số f(x) = x³ - 3(m+1)x² + 6mx + 1 , với m là tham số thực. Hàm số y = f(x) nghịch biến trên khoảng (1; 3) khi và chỉ khi:",
     "choices": [
-      "$m \\le 1$.",
-      "$m \\ge 1$.",
-      "$m \\le 3$.",
-      "$m \\ge 3$."
+      "m ≤ 1.",
+      "m ≥ 1.",
+      "m ≤ 3.",
+      "m ≥ 3."
     ],
     "answer": 3,
     "explanation": ""
@@ -2643,12 +2643,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c069",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Cho hàm số $f(x) = x^3 - 3(m+1)x^2 + 6mx + 1$ , với $m$ là tham số thực. Đường thẳng $y=1$ cắt đồ thị hàm số $y = f(x)$ tại hai điểm phân biệt có hoành độ lớn hơn 2 khi và chỉ khi:",
+    "question": "Cho hàm số f(x) = x³ - 3(m+1)x² + 6mx + 1 , với m là tham số thực. Đường thẳng y=1 cắt đồ thị hàm số y = f(x) tại hai điểm phân biệt có hoành độ lớn hơn 2 khi và chỉ khi:",
     "choices": [
-      "$m > 3$.",
-      "$m < 3$.",
-      "$m > 9$.",
-      "$m < 9$."
+      "m > 3.",
+      "m < 3.",
+      "m > 9.",
+      "m < 9."
     ],
     "answer": 0,
     "explanation": ""
@@ -2657,12 +2657,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c070",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Cho cấp số cộng $(u_n)$ xác định bởi hệ: $u_2 + u_6 = 18$ và $u_3 + u_7 = 22$ . Công sai $d$ của cấp số cộng $(u_n)$ là:",
+    "question": "Cho cấp số cộng (uₙ) xác định bởi hệ: u₂ + u₆ = 18 và u₃ + u₇ = 22 . Công sai d của cấp số cộng (uₙ) là:",
     "choices": [
-      "$d = 2$.",
-      "$d = -2$.",
-      "$d = 3$.",
-      "$d = -3$."
+      "d = 2.",
+      "d = -2.",
+      "d = 3.",
+      "d = -3."
     ],
     "answer": 0,
     "explanation": ""
@@ -2671,10 +2671,10 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c071",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Cho cấp số cộng $(u_n)$ xác định bởi hệ: $u_2 + u_6 = 18$ và $u_3 + u_7 = 22$ . Giá trị của $\\lim \\frac{u_n}{2n + 3}$ bằng:",
+    "question": "Cho cấp số cộng (uₙ) xác định bởi hệ: u₂ + u₆ = 18 và u₃ + u₇ = 22 . Giá trị của lim uₙ/(2n + 3) bằng:",
     "choices": [
-      "$\\frac{3}{2}$.",
-      "$\\frac{2}{3}$.",
+      "3/2.",
+      "2/3.",
       "3.",
       "6."
     ],
@@ -2685,12 +2685,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c072",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Một bác nông dân cần trồng lúa và khoai trên diện tích 6 ha, với lượng phân bón dự trữ là 100 kg và sử dụng tối đa 240 ngày công. Trồng 1 ha lúa cần 20 kg phân bón, 30 ngày công, lãi 50 triệu đồng. Trồng 1 ha khoai cần 10 kg phân bón, 60 ngày công, lãi 60 triệu đồng. Nếu trồng $x$ (ha) lúa và $y$ (ha) khoai, số kg phân bón cần dùng là:",
+    "question": "Một bác nông dân cần trồng lúa và khoai trên diện tích 6 ha, với lượng phân bón dự trữ là 100 kg và sử dụng tối đa 240 ngày công. Trồng 1 ha lúa cần 20 kg phân bón, 30 ngày công, lãi 50 triệu đồng. Trồng 1 ha khoai cần 10 kg phân bón, 60 ngày công, lãi 60 triệu đồng. Nếu trồng x (ha) lúa và y (ha) khoai, số kg phân bón cần dùng là:",
     "choices": [
-      "$20x + 10y$.",
-      "$10x + 20y$.",
-      "$20x + 30y$.",
-      "$30x + 60y$."
+      "20x + 10y.",
+      "10x + 20y.",
+      "20x + 30y.",
+      "30x + 60y."
     ],
     "answer": 0,
     "explanation": ""
@@ -2699,7 +2699,7 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c073",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Một bác nông dân cần trồng lúa và khoai trên diện tích 6 ha, với lượng phân bón dự trữ là 100 kg và sử dụng tối đa 240 ngày công. Trồng 1 ha lúa cần 20 kg phân bón, 30 ngày công, lãi 50 triệu đồng. Trồng 1 ha khoai cần 10 kg phân bón, 60 ngày công, lãi 60 triệu đồng. Để lãi cao nhất, bác nông dân đã trồng $x$ (ha) lúa và $y$ (ha) khoai. Giá trị của $x$ là:",
+    "question": "Một bác nông dân cần trồng lúa và khoai trên diện tích 6 ha, với lượng phân bón dự trữ là 100 kg và sử dụng tối đa 240 ngày công. Trồng 1 ha lúa cần 20 kg phân bón, 30 ngày công, lãi 50 triệu đồng. Trồng 1 ha khoai cần 10 kg phân bón, 60 ngày công, lãi 60 triệu đồng. Để lãi cao nhất, bác nông dân đã trồng x (ha) lúa và y (ha) khoai. Giá trị của x là:",
     "choices": [
       "2.",
       "3.",
@@ -2713,7 +2713,7 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c074",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Cho phương trình $9^x - 2m \\cdot 3^x + 3m + 4 = 0$ . Khi $m = -5$ , tổng tất cả các nghiệm của phương trình là:",
+    "question": "Cho phương trình 9ˣ - 2m · 3ˣ + 3m + 4 = 0 . Khi m = -5 , tổng tất cả các nghiệm của phương trình là:",
     "choices": [
       "0.",
       "1.",
@@ -2727,12 +2727,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c075",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Cho phương trình $9^x - 2m \\cdot 3^x + 3m + 4 = 0$ . Phương trình có hai nghiệm phân biệt khi và chỉ khi:",
+    "question": "Cho phương trình 9ˣ - 2m · 3ˣ + 3m + 4 = 0 . Phương trình có hai nghiệm phân biệt khi và chỉ khi:",
     "choices": [
-      "$m > 4$.",
-      "$m \\ge 4$.",
-      "$m < -1$ hoặc $m > 4$.",
-      "$m > 0$."
+      "m > 4.",
+      "m ≥ 4.",
+      "m < -1 hoặc m > 4.",
+      "m > 0."
     ],
     "answer": 0,
     "explanation": ""
@@ -2741,12 +2741,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c076",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Cho bất phương trình $\\log_2(5^x - 1) \\le m$ . Khi $m = 2$ , tập nghiệm của bất phương trình là:",
+    "question": "Cho bất phương trình log₂(5ˣ - 1) ≤ m . Khi m = 2 , tập nghiệm của bất phương trình là:",
     "choices": [
-      "$(-\\infty; 1]$.",
-      "$(0; 1]$.",
-      "$(-\\infty; 1)$.",
-      "$0; 1$."
+      "(-∞; 1].",
+      "(0; 1].",
+      "(-∞; 1).",
+      "0; 1."
     ],
     "answer": 1,
     "explanation": ""
@@ -2755,7 +2755,7 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c077",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Cho bất phương trình $\\log_2(5^x - 1) \\le m$ . Có bao nhiêu giá trị nguyên của $m$ để bất phương trình có đúng 3 nghiệm nguyên?",
+    "question": "Cho bất phương trình log₂(5ˣ - 1) ≤ m . Có bao nhiêu giá trị nguyên của m để bất phương trình có đúng 3 nghiệm nguyên?",
     "choices": [
       "1.",
       "2.",
@@ -2811,7 +2811,7 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c081",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Cho tam giác ABC có độ dài các cạnh là $AB = 5, BC = 6, CA = 7$ . Giá trị của $\\vec{AB} \\cdot \\vec{AC}$ là:",
+    "question": "Cho tam giác ABC có độ dài các cạnh là AB = 5, BC = 6, CA = 7 . Giá trị của AB⃗ · AC⃗ là:",
     "choices": [
       "19.",
       "6.",
@@ -2825,12 +2825,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c082",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Cho tam giác ABC có độ dài các cạnh là $AB = 5, BC = 6, CA = 7$ . Độ dài đường cao kẻ từ A của tam giác ABC là:",
+    "question": "Cho tam giác ABC có độ dài các cạnh là AB = 5, BC = 6, CA = 7 . Độ dài đường cao kẻ từ A của tam giác ABC là:",
     "choices": [
-      "$h_a = 2\\sqrt{6}$.",
-      "$h_a = \\sqrt{6}$.",
-      "$h_a = 2\\sqrt{3}$.",
-      "$h_a = 2\\sqrt{2}$."
+      "hₐ = 2√(6).",
+      "hₐ = √(6).",
+      "hₐ = 2√(3).",
+      "hₐ = 2√(2)."
     ],
     "answer": 0,
     "explanation": ""
@@ -2839,12 +2839,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c083",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Trong mặt phẳng Oxy, cho tam giác ABC có đường cao $AD: x - 3y - 6 = 0$ , đường cao $BE: 3x - y - 10 = 0$ và cạnh $AB: x - y - 2 = 0$ . Tung độ của điểm A là:",
+    "question": "Trong mặt phẳng Oxy, cho tam giác ABC có đường cao AD: x - 3y - 6 = 0 , đường cao BE: 3x - y - 10 = 0 và cạnh AB: x - y - 2 = 0 . Tung độ của điểm A là:",
     "choices": [
-      "$y_A = 0$.",
-      "$y_A = -2$.",
-      "$y_A = 1$.",
-      "$y_A = -1$."
+      "y_(A) = 0.",
+      "y_(A) = -2.",
+      "y_(A) = 1.",
+      "y_(A) = -1."
     ],
     "answer": 1,
     "explanation": ""
@@ -2853,12 +2853,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c084",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Trong mặt phẳng Oxy, cho tam giác ABC có đường cao $AD: x - 3y - 6 = 0$ , đường cao $BE: 3x - y - 10 = 0$ và cạnh $AB: x - y - 2 = 0$ . Phương trình đường cao kẻ từ C là:",
+    "question": "Trong mặt phẳng Oxy, cho tam giác ABC có đường cao AD: x - 3y - 6 = 0 , đường cao BE: 3x - y - 10 = 0 và cạnh AB: x - y - 2 = 0 . Phương trình đường cao kẻ từ C là:",
     "choices": [
-      "$x - y - 4 = 0$.",
-      "$x - y + 4 = 0$.",
-      "$x + y - 2 = 0$.",
-      "$x + y + 2 = 0$."
+      "x - y - 4 = 0.",
+      "x - y + 4 = 0.",
+      "x + y - 2 = 0.",
+      "x + y + 2 = 0."
     ],
     "answer": 2,
     "explanation": ""
@@ -2867,12 +2867,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c085",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Cho hình chóp tứ giác đều S.ABCD có cạnh đáy bằng $2a$ , khoảng cách giữa hai đường thẳng SA và CD bằng $a\\sqrt{3}$ . Gọi O là tâm của đáy. Khoảng cách từ O đến mặt phẳng (SAB) bằng:",
+    "question": "Cho hình chóp tứ giác đều S.ABCD có cạnh đáy bằng 2a , khoảng cách giữa hai đường thẳng SA và CD bằng a√(3) . Gọi O là tâm của đáy. Khoảng cách từ O đến mặt phẳng (SAB) bằng:",
     "choices": [
-      "$\\frac{a\\sqrt{3}}{3}$.",
-      "$\\frac{a\\sqrt{3}}{2}$.",
-      "$a\\sqrt{3}$.",
-      "$2a\\sqrt{3}$."
+      "(a√(3))/3.",
+      "(a√(3))/2.",
+      "a√(3).",
+      "2a√(3)."
     ],
     "answer": 1,
     "explanation": ""
@@ -2881,12 +2881,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c086",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Cho hình chóp tứ giác đều S.ABCD có cạnh đáy bằng $2a$ , khoảng cách giữa hai đường thẳng SA và CD bằng $a\\sqrt{3}$ . Thể tích của khối chóp S.ABCD bằng:",
+    "question": "Cho hình chóp tứ giác đều S.ABCD có cạnh đáy bằng 2a , khoảng cách giữa hai đường thẳng SA và CD bằng a√(3) . Thể tích của khối chóp S.ABCD bằng:",
     "choices": [
-      "$\\frac{a^3\\sqrt{6}}{3}$.",
-      "$\\frac{a^3\\sqrt{3}}{3}$.",
-      "$\\frac{4a^3\\sqrt{3}}{3}$.",
-      "$\\frac{4a^3\\sqrt{6}}{3}$."
+      "(a³√(6))/3.",
+      "(a³√(3))/3.",
+      "(4a³√(3))/3.",
+      "(4a³√(6))/3."
     ],
     "answer": 2,
     "explanation": ""
@@ -2895,12 +2895,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c087",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Cho hình chóp tứ giác đều S.ABCD có cạnh đáy bằng $2a$ , khoảng cách giữa hai đường thẳng SA và CD bằng $a\\sqrt{3}$ . Góc giữa hai đường thẳng SA và CD xấp xỉ bằng:",
+    "question": "Cho hình chóp tứ giác đều S.ABCD có cạnh đáy bằng 2a , khoảng cách giữa hai đường thẳng SA và CD bằng a√(3) . Góc giữa hai đường thẳng SA và CD xấp xỉ bằng:",
     "choices": [
-      "$70^\\circ 29'$.",
-      "$26^\\circ 34'$.",
-      "$19^\\circ 31'$.",
-      "$63^\\circ 26'$."
+      "70° 29'.",
+      "26° 34'.",
+      "19° 31'.",
+      "63° 26'."
     ],
     "answer": 0,
     "explanation": ""
@@ -2909,7 +2909,7 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c088",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Trong không gian Oxyz, cho điểm $A(2; 2; -3)$ và hai mặt phẳng $(P): 2x + y - 2z = 0$ , $(Q): 2x - y + z = 0$ . Khoảng cách từ điểm A đến mặt phẳng (P) bằng:",
+    "question": "Trong không gian Oxyz, cho điểm A(2; 2; -3) và hai mặt phẳng (P): 2x + y - 2z = 0 , (Q): 2x - y + z = 0 . Khoảng cách từ điểm A đến mặt phẳng (P) bằng:",
     "choices": [
       "3.",
       "4.",
@@ -2923,12 +2923,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c089",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Trong không gian Oxyz, cho điểm $A(2; 2; -3)$ và hai mặt phẳng $(P): 2x + y - 2z = 0$ , $(Q): 2x - y + z = 0$ . Mặt phẳng đi qua A và vuông góc với cả (P) và (Q) có phương trình:",
+    "question": "Trong không gian Oxyz, cho điểm A(2; 2; -3) và hai mặt phẳng (P): 2x + y - 2z = 0 , (Q): 2x - y + z = 0 . Mặt phẳng đi qua A và vuông góc với cả (P) và (Q) có phương trình:",
     "choices": [
-      "$x + 6y + 4z - 2 = 0$.",
-      "$x - 6y - 4z - 2 = 0$.",
-      "$x - 6y + 4z + 22 = 0$.",
-      "$x + 6y - 4z - 26 = 0$."
+      "x + 6y + 4z - 2 = 0.",
+      "x - 6y - 4z - 2 = 0.",
+      "x - 6y + 4z + 22 = 0.",
+      "x + 6y - 4z - 26 = 0."
     ],
     "answer": 0,
     "explanation": ""
@@ -2937,12 +2937,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c090",
     "part": "toan",
     "topic": "Đề mẫu THO 2 – Toán học",
-    "question": "Trong không gian Oxyz, cho điểm $A(2; 2; -3)$ và hai mặt phẳng $(P): 2x + y - 2z = 0$ , $(Q): 2x - y + z = 0$ . Gọi $d$ là đường thẳng qua A và song song với cả (P) và (Q). Điểm M nào thuộc $d$ ?",
+    "question": "Trong không gian Oxyz, cho điểm A(2; 2; -3) và hai mặt phẳng (P): 2x + y - 2z = 0 , (Q): 2x - y + z = 0 . Gọi d là đường thẳng qua A và song song với cả (P) và (Q). Điểm M nào thuộc d ?",
     "choices": [
-      "$M(1; -4; 7)$.",
-      "$M(1; 4; -7)$.",
-      "$M(3; 8; -1)$.",
-      "$M(3; 8; 1)$."
+      "M(1; -4; 7).",
+      "M(1; 4; -7).",
+      "M(3; 8; -1).",
+      "M(3; 8; 1)."
     ],
     "answer": 3,
     "explanation": ""
@@ -3119,11 +3119,11 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c103",
     "part": "tukhoahoc",
     "topic": "Đề mẫu THO 2 – Tư duy khoa học",
-    "question": "Năng lượng tự do Gibbs ( $\\Delta_rG^o$ ) quyết định chiều hướng và giới hạn của các quá trình hóa học. Mối liên hệ giữa $\\Delta_rG^o$ , biến thiên enthalpy ( $\\Delta_rH^o$ ), biến thiên entropy ( $\\Delta_rS^o$ ) và nhiệt độ ( $T$ ) được biểu diễn qua phương trình: $\\Delta_rG^o = \\Delta_rH^o - T \\cdot \\Delta_rS^o$ . Đồ thị thực nghiệm cho một phản ứng cụ thể cho thấy $\\Delta_rG^o$ giảm dần theo đường thẳng khi nhiệt độ tăng, cắt trục hoành ( $\\Delta_rG^o = 0$ ) tại $1110\\text{ K}$ . Phản ứng trên xảy ra tự phát ở điều kiện chuẩn khi:",
+    "question": "Năng lượng tự do Gibbs ( ΔᵣG° ) quyết định chiều hướng và giới hạn của các quá trình hóa học. Mối liên hệ giữa ΔᵣG° , biến thiên enthalpy ( ΔᵣH° ), biến thiên entropy ( ΔᵣS° ) và nhiệt độ ( T ) được biểu diễn qua phương trình: ΔᵣG° = ΔᵣH° - T · ΔᵣS° . Đồ thị thực nghiệm cho một phản ứng cụ thể cho thấy ΔᵣG° giảm dần theo đường thẳng khi nhiệt độ tăng, cắt trục hoành ( ΔᵣG° = 0 ) tại 1110 K . Phản ứng trên xảy ra tự phát ở điều kiện chuẩn khi:",
     "choices": [
-      "$T > 1110\\text{ K}$.",
-      "$T < 1110\\text{ K}$.",
-      "$T = 1110\\text{ K}$.",
+      "T > 1110 K.",
+      "T < 1110 K.",
+      "T = 1110 K.",
       "Ở mọi nhiệt độ."
     ],
     "answer": 0,
@@ -3133,11 +3133,11 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c104",
     "part": "tukhoahoc",
     "topic": "Đề mẫu THO 2 – Tư duy khoa học",
-    "question": "Năng lượng tự do Gibbs ( $\\Delta_rG^o$ ) quyết định chiều hướng và giới hạn của các quá trình hóa học. Mối liên hệ giữa $\\Delta_rG^o$ , biến thiên enthalpy ( $\\Delta_rH^o$ ), biến thiên entropy ( $\\Delta_rS^o$ ) và nhiệt độ ( $T$ ) được biểu diễn qua phương trình: $\\Delta_rG^o = \\Delta_rH^o - T \\cdot \\Delta_rS^o$ . Đồ thị thực nghiệm cho một phản ứng cụ thể cho thấy $\\Delta_rG^o$ giảm dần theo đường thẳng khi nhiệt độ tăng, cắt trục hoành ( $\\Delta_rG^o = 0$ ) tại $1110\\text{ K}$ . Từ độ dốc âm của đồ thị, ta có thể kết luận về biến thiên entropy ( $\\Delta_rS^o$ ) của phản ứng là:",
+    "question": "Năng lượng tự do Gibbs ( ΔᵣG° ) quyết định chiều hướng và giới hạn của các quá trình hóa học. Mối liên hệ giữa ΔᵣG° , biến thiên enthalpy ( ΔᵣH° ), biến thiên entropy ( ΔᵣS° ) và nhiệt độ ( T ) được biểu diễn qua phương trình: ΔᵣG° = ΔᵣH° - T · ΔᵣS° . Đồ thị thực nghiệm cho một phản ứng cụ thể cho thấy ΔᵣG° giảm dần theo đường thẳng khi nhiệt độ tăng, cắt trục hoành ( ΔᵣG° = 0 ) tại 1110 K . Từ độ dốc âm của đồ thị, ta có thể kết luận về biến thiên entropy ( ΔᵣS° ) của phản ứng là:",
     "choices": [
-      "$\\Delta_rS^o < 0$.",
-      "$\\Delta_rS^o > 0$.",
-      "$\\Delta_rS^o = 0$.",
+      "ΔᵣS° < 0.",
+      "ΔᵣS° > 0.",
+      "ΔᵣS° = 0.",
       "Không xác định được."
     ],
     "answer": 1,
@@ -3147,7 +3147,7 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c105",
     "part": "tukhoahoc",
     "topic": "Đề mẫu THO 2 – Tư duy khoa học",
-    "question": "Năng lượng tự do Gibbs ( $\\Delta_rG^o$ ) quyết định chiều hướng và giới hạn của các quá trình hóa học. Mối liên hệ giữa $\\Delta_rG^o$ , biến thiên enthalpy ( $\\Delta_rH^o$ ), biến thiên entropy ( $\\Delta_rS^o$ ) và nhiệt độ ( $T$ ) được biểu diễn qua phương trình: $\\Delta_rG^o = \\Delta_rH^o - T \\cdot \\Delta_rS^o$ . Đồ thị thực nghiệm cho một phản ứng cụ thể cho thấy $\\Delta_rG^o$ giảm dần theo đường thẳng khi nhiệt độ tăng, cắt trục hoành ( $\\Delta_rG^o = 0$ ) tại $1110\\text{ K}$ . Tại nhiệt độ $1110\\text{ K}$ , nhận định nào sau đây là đúng?",
+    "question": "Năng lượng tự do Gibbs ( ΔᵣG° ) quyết định chiều hướng và giới hạn của các quá trình hóa học. Mối liên hệ giữa ΔᵣG° , biến thiên enthalpy ( ΔᵣH° ), biến thiên entropy ( ΔᵣS° ) và nhiệt độ ( T ) được biểu diễn qua phương trình: ΔᵣG° = ΔᵣH° - T · ΔᵣS° . Đồ thị thực nghiệm cho một phản ứng cụ thể cho thấy ΔᵣG° giảm dần theo đường thẳng khi nhiệt độ tăng, cắt trục hoành ( ΔᵣG° = 0 ) tại 1110 K . Tại nhiệt độ 1110 K , nhận định nào sau đây là đúng?",
     "choices": [
       "Phản ứng xảy ra mãnh liệt.",
       "Phản ứng dừng lại hoàn toàn.",
@@ -3163,10 +3163,10 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "topic": "Đề mẫu THO 2 – Tư duy khoa học",
     "question": "Trong mạch điện xoay chiều RLC nối tiếp, hiện tượng cộng hưởng điện xảy ra khi:",
     "choices": [
-      "$Z_L < Z_C$.",
-      "$Z_L > Z_C$.",
-      "$Z_L = Z_C$.",
-      "$Z_L \\cdot Z_C = R^2$."
+      "Z_(L) < Z_(C).",
+      "Z_(L) > Z_(C).",
+      "Z_(L) = Z_(C).",
+      "Z_(L) · Z_(C) = R²."
     ],
     "answer": 2,
     "explanation": ""
@@ -3175,12 +3175,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c107",
     "part": "tukhoahoc",
     "topic": "Đề mẫu THO 2 – Tư duy khoa học",
-    "question": "Một vật dao động điều hòa với phương trình $x = A\\cos(\\omega t + \\phi)$ . Gia tốc của vật biến thiên:",
+    "question": "Một vật dao động điều hòa với phương trình x = Acos(ω t + φ) . Gia tốc của vật biến thiên:",
     "choices": [
       "Ngược pha với li độ.",
       "Cùng pha với li độ.",
-      "Trễ pha $\\pi/2$ so với li độ.",
-      "Sớm pha $\\pi/2$ so với li độ."
+      "Trễ pha π/2 so với li độ.",
+      "Sớm pha π/2 so với li độ."
     ],
     "answer": 0,
     "explanation": ""
@@ -3189,12 +3189,12 @@ window.QUESTION_BANK = (window.QUESTION_BANK || []).concat(
     "id": "tho2-c108",
     "part": "tukhoahoc",
     "topic": "Đề mẫu THO 2 – Tư duy khoa học",
-    "question": "Một sóng cơ truyền dọc theo trục Ox có phương trình $u = A\\cos(20\\pi t - 0,1\\pi x)$ . Tốc độ truyền sóng là:",
+    "question": "Một sóng cơ truyền dọc theo trục Ox có phương trình u = Acos(20π t - 0,1π x) . Tốc độ truyền sóng là:",
     "choices": [
-      "$100\\text{ cm/s}$.",
-      "$200\\text{ cm/s}$.",
-      "$50\\text{ cm/s}$.",
-      "$20\\text{ cm/s}$."
+      "100 cm/s.",
+      "200 cm/s.",
+      "50 cm/s.",
+      "20 cm/s."
     ],
     "answer": 1,
     "explanation": ""
