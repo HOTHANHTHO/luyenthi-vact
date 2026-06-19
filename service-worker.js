@@ -1,5 +1,5 @@
 /* Service worker — cho phép chạy offline sau lần mở đầu (khi đã host qua http/https) */
-var CACHE = "vact-cache-20260619";
+var CACHE = "vact-cache-20260619b";
 var ASSETS = [
   "./",
   "./index.html",
@@ -7,6 +7,7 @@ var ASSETS = [
   "./data/questions.js",
   "./data/questions_hsa_de1.js",
   "./data/questions_hsa_de2_4.js",
+  "./data/questions_bosung_20260619.js",
   "./manifest.webmanifest",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
