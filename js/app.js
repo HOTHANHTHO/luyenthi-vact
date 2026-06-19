@@ -13,6 +13,7 @@
   ];
   var REAL_TOTAL = 120;
   var REAL_MINUTES = 150;
+  var SEC_PER_Q = (REAL_MINUTES * 60) / REAL_TOTAL; // 75 giây/câu (chuẩn V-ACT)
   var STORE_KEY = "vact_progress_v1";
 
   var BANK = (window.QUESTION_BANK || []).slice();
@@ -26,9 +27,34 @@
   function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
   function partOf(key) { for (var i = 0; i < PARTS.length; i++) if (PARTS[i].key === key) return PARTS[i]; return { name: key, group: key }; }
   function fmtTime(s) { if (s < 0) s = 0; var m = Math.floor(s / 60), ss = s % 60; return (m < 10 ? "0" : "") + m + ":" + (ss < 10 ? "0" : "") + ss; }
+  function availCount(partKey) { return BANK.filter(function (q) { return q.part === partKey; }).length; }
+  // Tính phương án đề thi thử theo số phút chọn: số câu = phút*60 / 75; chia đều 4 phần (cấu trúc V-ACT 30/30/30/30)
+  function computeMockPlan(minutes) {
+    var n = Math.round(minutes * 60 / SEC_PER_Q);
+    var per = {}, base = Math.floor(n / 4), rem = n - base * 4;
+    PARTS.forEach(function (p) { per[p.key] = base; });
+    for (var i = 0; i < rem; i++) per[PARTS[i].key]++;
+    return { n: n, per: per, durSec: minutes * 60 };
+  }
+  // Cập nhật gợi ý số câu tối đa cho phần luyện theo chủ đề
+  function updateTopicMax() {
+    var sel = $("topic-part"); if (!sel) return;
+    var n = availCount(sel.value), hint = $("topic-max"), inp = $("topic-count");
+    if (hint) hint.textContent = "(tối đa " + n + " câu)";
+    if (inp) inp.setAttribute("max", n);
+  }
+  // Cập nhật thông tin số câu + tỉ lệ phần cho màn thi thử
+  function updateMockInfo() {
+    var mEl = $("mock-minutes"); if (!mEl) return;
+    var plan = computeMockPlan(parseInt(mEl.value, 10));
+    var parts = PARTS.map(function (p) { return { name: p.name, take: Math.min(plan.per[p.key], availCount(p.key)) }; });
+    var realN = parts.reduce(function (s, x) { return s + x.take; }, 0);
+    $("mock-info").innerHTML = "Đề gồm khoảng <b>" + realN + " câu</b> (" + Math.round(SEC_PER_Q) +
+      " giây/câu), chia đều 4 phần — " + parts.map(function (x) { return x.name + ": " + x.take; }).join("; ") + ".";
+  }
 
   function showScreen(id) {
-    ["home", "topic", "quiz", "result", "progress", "about"].forEach(function (s) {
+    ["home", "topic", "mock", "quiz", "result", "progress", "about"].forEach(function (s) {
       $("screen-" + s).classList.add("hidden");
     });
     $("screen-" + id).classList.remove("hidden");
@@ -80,6 +106,9 @@
       if (n === 0) o.disabled = true;
       sel.appendChild(o);
     });
+    sel.onchange = updateTopicMax;
+    updateTopicMax();
+    var mm = $("mock-minutes"); if (mm) { mm.onchange = updateMockInfo; }
   }
 
   /* ---------------- Bắt đầu phiên ---------------- */
@@ -88,6 +117,7 @@
       mode: mode, questions: questions,
       answers: new Array(questions.length).fill(null),
       locked: new Array(questions.length).fill(false),
+      order: questions.map(function (q) { return shuffle(q.choices.map(function (_, i) { return i; })); }),
       index: 0, durationSec: durationSec || 0, timerId: null, timerEnd: 0
     };
     $("quiz-mode-pill").textContent = mode === "mock" ? "Thi thử" : "Luyện tập";
@@ -129,26 +159,27 @@
     var box = $("quiz-choices"); box.innerHTML = "";
     var keys = ["A", "B", "C", "D", "E", "F"];
     var locked = S.locked[S.index];
-    q.choices.forEach(function (text, i) {
+    var order = S.order[S.index];      // thứ tự hiển thị (đã đảo) của các phương án
+    var chosen = S.answers[S.index];   // CHỈ SỐ GỐC của phương án đã chọn
+    order.forEach(function (origIdx, pos) {
       var c = el("div", "choice");
-      c.appendChild(el("span", "key", keys[i]));
-      c.appendChild(el("span", null, text));
-      var chosen = S.answers[S.index];
-      if (chosen === i) c.classList.add("selected");
+      c.appendChild(el("span", "key", keys[pos]));
+      c.appendChild(el("span", null, q.choices[origIdx]));
+      if (chosen === origIdx) c.classList.add("selected");
       if (locked) {
         c.classList.add("locked");
-        if (i === q.answer) c.classList.add("correct");
-        else if (chosen === i) c.classList.add("wrong");
+        if (origIdx === q.answer) c.classList.add("correct");
+        else if (chosen === origIdx) c.classList.add("wrong");
       } else {
-        c.onclick = function () { chooseAnswer(i); };
+        c.onclick = (function (oi) { return function () { chooseAnswer(oi); }; })(origIdx);
       }
       box.appendChild(c);
     });
 
-    // Giải thích (chế độ luyện tập: hiện sau khi chọn)
+    // Giải thích (chế độ luyện tập: hiện sau khi chọn) — chữ cái theo vị trí hiển thị đã đảo
     var ex = $("quiz-explain");
     if (S.mode === "practice" && locked) {
-      var correctTxt = "<b>Đáp án đúng: " + keys[q.answer] + ".</b> ";
+      var correctTxt = "<b>Đáp án đúng: " + keys[order.indexOf(q.answer)] + ".</b> ";
       ex.innerHTML = correctTxt + (q.explanation || "");
       ex.classList.add("show");
     } else { ex.classList.remove("show"); ex.innerHTML = ""; }
@@ -301,14 +332,31 @@
     }
 
     var h = $("prog-history"); h.innerHTML = "";
-    if (!st.history.length) { h.innerHTML = "<p class='muted' style='margin:0'>Chưa có lần thi thử nào.</p>"; }
-    else st.history.forEach(function (r) {
-      var d = new Date(r.date);
-      var row = el("div", "stat");
-      row.innerHTML = "<span>" + d.toLocaleDateString("vi-VN") + " " + d.toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" }) +
-        "</span><b>" + r.correct + "/" + r.total + " · " + r.score + "%</b>";
-      h.appendChild(row);
-    });
+    if (!st.history.length) {
+      h.innerHTML = "<p class='muted' style='margin:0'>Chưa có lần thi thử nào.</p>";
+    } else {
+      // So sánh lần thi gần nhất với lần trước đó
+      if (st.history.length >= 2) {
+        var dlt = st.history[0].score - st.history[1].score;
+        var col = dlt > 0 ? "var(--green)" : (dlt < 0 ? "var(--red)" : "var(--muted)");
+        var word = dlt > 0 ? "▲ Tiến bộ +" + dlt + " điểm %" : (dlt < 0 ? "▼ Giảm " + dlt + " điểm %" : "• Không đổi");
+        var sumRow = el("div", "stat");
+        sumRow.innerHTML = "<span>Lần gần nhất so với lần trước</span><b style='color:" + col + "'>" + word + "</b>";
+        h.appendChild(sumRow);
+      }
+      st.history.forEach(function (r, idx) {
+        var d = new Date(r.date), older = st.history[idx + 1], deltaHtml = "";
+        if (older) {
+          var dd = r.score - older.score, c = dd > 0 ? "var(--green)" : (dd < 0 ? "var(--red)" : "var(--muted)");
+          var ar = dd > 0 ? "▲+" + dd : (dd < 0 ? "▼" + dd : "•0");
+          deltaHtml = " <span style='color:" + c + ";font-size:12px'>" + ar + "</span>";
+        }
+        var row = el("div", "stat");
+        row.innerHTML = "<span>" + d.toLocaleDateString("vi-VN") + " " + d.toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" }) +
+          "</span><b>" + r.correct + "/" + r.total + " · " + r.score + "%" + deltaHtml + "</b>";
+        h.appendChild(row);
+      });
+    }
     showScreen("progress");
   }
   function rowStat(label, val) { var r = el("div", "stat"); r.innerHTML = "<span>" + label + "</span><b>" + val + "</b>"; return r; }
@@ -316,37 +364,32 @@
   /* ---------------- API công khai (gọi từ HTML) ---------------- */
   window.App = {
     goHome: function () { if (S && S.timerId) clearInterval(S.timerId); showScreen("home"); },
-    goTopicSelect: function () { showScreen("topic"); },
+    goTopicSelect: function () { updateTopicMax(); showScreen("topic"); },
+    goMockSelect: function () { updateMockInfo(); showScreen("mock"); },
     goProgress: function () { renderProgress(); },
     goAbout: function () { showScreen("about"); },
 
     startTopic: function () {
-      var part = $("topic-part").value;
+      var part = $("topic-part").value, avail = availCount(part);
+      if (!avail) { alert("Phần này chưa có câu hỏi."); return; }
       var count = parseInt($("topic-count").value, 10);
-      var pool = shuffle(BANK.filter(function (q) { return q.part === part; }));
-      if (!pool.length) { alert("Phần này chưa có câu hỏi. Thầy có thể thêm vào file data/questions.js."); return; }
-      if (count > 0) pool = pool.slice(0, count);
+      if (isNaN(count) || count < 1) { alert("Vui lòng nhập số câu muốn luyện (tối thiểu 1)."); return; }
+      if (count > avail) { count = avail; alert("Phần này chỉ có " + avail + " câu, sẽ luyện " + avail + " câu."); }
+      var pool = shuffle(BANK.filter(function (q) { return q.part === part; })).slice(0, count);
       beginSession(pool, "practice", 0);
     },
 
     startMock: function () {
       if (BANK.length === 0) { alert("Chưa có câu hỏi nào trong ngân hàng."); return; }
-      // Lấy câu theo tỉ lệ đề thật; nếu thiếu thì lấy tối đa có thể
+      var plan = computeMockPlan(parseInt($("mock-minutes").value, 10));
       var picked = [];
       PARTS.forEach(function (p) {
         var pool = shuffle(BANK.filter(function (q) { return q.part === p.key; }));
-        var take = Math.min(p.real, pool.length);
-        picked = picked.concat(pool.slice(0, take));
+        picked = picked.concat(pool.slice(0, Math.min(plan.per[p.key], pool.length)));
       });
       picked = shuffle(picked);
-      // Thời gian tỉ lệ theo số câu thực tế (chuẩn 150 phút / 120 câu = 75 giây/câu)
-      var perQ = (REAL_MINUTES * 60) / REAL_TOTAL;
-      var dur = Math.round(picked.length * perQ);
-      var msg = "Đề thi thử gồm " + picked.length + " câu, thời gian " + Math.round(dur / 60) + " phút.\n" +
-        (picked.length < REAL_TOTAL ? "(Ngân hàng hiện chưa đủ 120 câu nên đề được rút gọn theo số câu đang có.)\n" : "") +
-        "Bắt đầu ngay?";
-      if (!confirm(msg)) return;
-      beginSession(picked, "mock", dur);
+      if (!picked.length) { alert("Không đủ câu hỏi để tạo đề."); return; }
+      beginSession(picked, "mock", plan.durSec);
     },
 
     nextQ: nextQ, prevQ: prevQ,
