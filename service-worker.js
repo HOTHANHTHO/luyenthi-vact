@@ -1,5 +1,5 @@
 /* Service worker — cho phép chạy offline sau lần mở đầu (khi đã host qua http/https) */
-var CACHE = "vact-cache-20260619h";
+var CACHE = "vact-cache-20260619i";
 var ASSETS = [
   "./",
   "./index.html",
