@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tạo mã mật khẩu — Luyện thi ĐGNL</title>
+<style>
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:#f8fafc;color:#0f172a;margin:0;padding:24px;line-height:1.6}
+  .box{max-width:560px;margin:0 auto;background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:24px;box-shadow:0 8px 24px rgba(15,23,42,.06)}
+  h1{font-size:19px;margin:0 0 6px}
+  p{font-size:14px;color:#475569}
+  input{width:100%;padding:12px 14px;border:1px solid #e2e8f0;border-radius:11px;font-size:15px;box-sizing:border-box;margin:10px 0}
+  button{background:#1d4ed8;color:#fff;border:none;border-radius:11px;padding:12px 18px;font-size:15px;font-weight:600;cursor:pointer}
+  .out{margin-top:16px;padding:14px;background:#f1f5f9;border-radius:11px;font-family:monospace;font-size:13px;word-break:break-all;min-height:20px}
+  ol{font-size:14px;color:#334155;padding-left:20px}
+  code{background:#eef2ff;padding:1px 5px;border-radius:5px}
+</style>
+</head>
+<body>
+<div class="box">
+  <h1>Tạo mã mật khẩu (SHA-256)</h1>
+  <p>Dùng khi muốn <b>đổi mật khẩu</b> của app. Trang này chạy ngay trên máy, không gửi gì lên mạng.</p>
+  <input id="pw" type="text" placeholder="Gõ mật khẩu mới ở đây" autocomplete="off" />
+  <button id="gen">Tạo mã</button>
+  <div class="out" id="out">Mã băm sẽ hiện ở đây…</div>
+  <h3 style="font-size:15px;margin-top:22px">Cách đổi mật khẩu:</h3>
+  <ol>
+    <li>Gõ mật khẩu mới ở trên → bấm <b>Tạo mã</b> → bấm vào ô mã để copy.</li>
+    <li>Mở file <code>js/auth.js</code>, thay chuỗi sau <code>var PASS_HASH =</code> bằng mã vừa copy (giữ nguyên dấu nháy và dấu chấm phẩy).</li>
+    <li>Lưu file, đẩy <code>js/auth.js</code> lên GitHub (hoặc nhờ trợ lý làm).</li>
+    <li>Trên thiết bị đã đăng nhập trước đó, cần bấm "khóa lại"/xóa dữ liệu duyệt web để áp dụng mật khẩu mới.</li>
+  </ol>
+  <p style="font-size:12.5px;color:#94a3b8">Lưu ý: app công khai nên đây chỉ là khóa nhẹ, không bảo vệ tuyệt đối nội dung.</p>
+</div>
+<script>
+  async function sha256(s){
+    const buf=await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s));
+    return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,"0")).join("");
+  }
+  const out=document.getElementById("out");
+  document.getElementById("gen").onclick=async()=>{
+    const pw=document.getElementById("pw").value;
+    if(!pw){ out.textContent="Hãy gõ mật khẩu trước."; return; }
+    out.textContent=await sha256(pw);
+  };
+  out.onclick=()=>{ const t=out.textContent; if(t&&t.length===64){ navigator.clipboard&&navigator.clipboard.writeText(t); out.textContent=t+"  ✓ đã copy"; } };
+</script>
+</body>
+</html>
