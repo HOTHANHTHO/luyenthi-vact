@@ -1,5 +1,5 @@
 /* Service worker — cho phép chạy offline sau lần mở đầu (khi đã host qua http/https) */
-var CACHE = "vact-cache-20260619k";
+var CACHE = "vact-cache-20260619m";
 var ASSETS = [
   "./",
   "./index.html",
@@ -32,13 +32,12 @@ self.addEventListener("activate", function (e) {
 
 self.addEventListener("fetch", function (e) {
   if (e.request.method !== "GET") return;
+  // Network-first: luon lay ban moi khi co mang, offline thi dung cache
   e.respondWith(
-    caches.match(e.request).then(function (cached) {
-      return cached || fetch(e.request).then(function (resp) {
-        var copy = resp.clone();
-        caches.open(CACHE).then(function (c) { c.put(e.request, copy); }).catch(function () {});
-        return resp;
-      }).catch(function () { return cached; });
-    })
+    fetch(e.request).then(function (resp) {
+      var copy = resp.clone();
+      caches.open(CACHE).then(function (c) { c.put(e.request, copy); }).catch(function () {});
+      return resp;
+    }).catch(function () { return caches.match(e.request); })
   );
 });
