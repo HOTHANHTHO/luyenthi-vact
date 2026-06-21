@@ -10,7 +10,7 @@
  * ===================================================================== */
 (function () {
   "use strict";
-  var PASS_HASH = "dff16fcb55a9dcc65d8c9c99a4bda004494655e24668826d49901977eed76261";
+  var PASS_HASH = "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5";
   var STORE = "vact_authed_v1";
 
   async function sha256(s) {
