@@ -101,9 +101,31 @@
   .install-tip{font-size:12.5px;color:var(--muted);text-align:center;margin-top:18px;padding:0 10px}
   .field-label{font-size:13px;font-weight:600;color:var(--muted);margin:0 0 6px}
   select.input{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:11px;font-size:15px;font-family:inherit;background:#fff}
+  /* ====== Màn hình khóa (mật khẩu) ====== */
+  #auth-gate{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:20px}
+  #auth-gate.hidden{display:none}
+  .auth-box{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 22px;max-width:340px;width:100%;text-align:center}
+  .auth-logo{width:54px;height:54px;border-radius:14px;background:var(--blue);color:#fff;font-weight:800;font-size:13px;line-height:1.05;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 14px}
+  .auth-box h2{font-size:17px;margin:0 0 4px}
+  .auth-sub{font-size:13px;color:var(--muted);margin:0 0 16px}
+  #auth-input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:11px;font-size:15px;font-family:inherit;margin-bottom:12px;box-sizing:border-box}
+  .auth-err{color:var(--red);font-size:13px;min-height:18px;margin-top:8px}
+  .auth-remember{display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;color:var(--muted);margin-top:6px}
 </style>
 </head>
 <body>
+<!-- ====== MÀN HÌNH KHÓA (KHÓA NHẸ) ====== -->
+<div id="auth-gate">
+  <div class="auth-box">
+    <div class="auth-logo">HTT<br>DGNL</div>
+    <h2>Luyện thi đánh giá năng lực</h2>
+    <p class="auth-sub">Nhập mật khẩu để vào ứng dụng</p>
+    <input id="auth-input" type="password" placeholder="Mật khẩu" autocomplete="off" />
+    <button id="auth-btn" class="btn btn-primary" style="width:100%">Mở khóa</button>
+    <div id="auth-err" class="auth-err"></div>
+    <label class="auth-remember"><input id="auth-remember" type="checkbox" checked /> Nhớ trên thiết bị này</label>
+  </div>
+</div>
 <div class="wrap">
   <header class="app">
     <div class="logo"><span>HTT</span><span>DGNL</span></div>
@@ -270,6 +292,7 @@
 <script src="data/questions_bosung2_20260619.js"></script>
 <script src="data/questions_tho_de1_2.js"></script>
 <script src="data/questions_tho_de3.js"></script>
+<script src="js/auth.js"></script>
 <script src="js/app.js"></script>
 <script>
   // Đăng ký service worker (chỉ hoạt động khi mở qua http/https, ví dụ khi đã đưa lên hosting)
